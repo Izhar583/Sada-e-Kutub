@@ -6,7 +6,21 @@ import { APP_NAME, APP_TAGLINE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: `صداۓ کتب | ${APP_NAME} — ${APP_TAGLINE}`,
-  description: "Turn any PDF, scanned book, or photo into an intelligent audiobook in Urdu and English with emotion-aware narration, chapter detection, and Ask My Book AI.",
+  description:
+    "Turn any PDF, scanned book, or photo into an intelligent audiobook in Urdu and English with emotion-aware narration, chapter detection, and Ask My Book AI.",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "none",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -17,6 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+        <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
